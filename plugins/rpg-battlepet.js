@@ -1,4 +1,4 @@
-const pets = ['kucing', 'anjing', 'serigala', 'phonix', 'rubah']
+const pets = ['kucing', 'anjing', 'serigala', 'phonix', 'rubah', 'celeng']
 
 let handler = async (m, { conn, text: txt, usedPrefix, participants }) => {
     conn.battlepet = conn.battlepet ? conn.battlepet : {}

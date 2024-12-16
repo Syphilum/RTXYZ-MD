@@ -12,7 +12,8 @@ let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) => {
   let hanjing = 10
   let hserigala = 25
   let hrubah = 50
-  let hphonix = 150
+  let hphonix = 15
+  let hceleng = 150
 
 let logo = `— *P E T   S T O R E* —
 ▮▧▧▧▧▧▧▧▧▧▧▧▧▮`
@@ -22,6 +23,7 @@ let caption = `
 🐺 *serigala:* ${hserigala} pet
 🦊 *rubah:* ${hrubah} pet
 🐦‍🔥 *phonix:* ${hphonix} pet
+🐗*celeng:*${hceleng} pet
 
 〉 *ABILITY*
 Cooming soon..
@@ -124,7 +126,14 @@ ${usedPrefix}adopt kucing`.trim()
             global.db.data.users[m.sender].serigala += 1
             m.reply("Selamat anda mempunyai pet Baru ! 🎉")
             break
-            
+            case 'celeng':
+          if (user.celeng > 0) return m.reply('Kamu sudah memilik ini')
+            if(user.pet < hceleng) return m.reply(`Pet Token anda kurang`)
+            global.db.data.users[m.sender].pet -= hceleng
+            global.db.data.users[m.sender].celeng += 1
+            m.reply("Selamat anda mempunyai pet Baru ! 🎉")
+            break
+
           default:
               return await m.reply(`${logo}\n${caption}`)
         }
