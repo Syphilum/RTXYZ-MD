@@ -79,6 +79,9 @@ handler.before = async (m, { conn }) => {
                 if ([".", "#", "!", "/", "\\"].some(prefix => filter.startsWith(prefix))) return;
                 
                 const previousMessages = conn.selfai[m.sender].sessionChat || [];
+                /**
+                Custom Prompt bagian ini
+                **/
                 const messages = [
                     { role: "system", content: "kamu adalah BTCH, Seorang Asisten pribadi yang di buat oleh BOTCAHX yang siap membantu kapan pun!" },
                     { role: "assistant", content: `Saya BTCH, asisten pribadi yang siap membantu kamu kapan pun! Apa yang bisa saya bantu hari ini?` },
