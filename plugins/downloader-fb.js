@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 
 let handler = async (m, { conn, args, usedPrefix, command }) => {  
-        if (!args[0]) throw `Gunakan contoh ${usedPrefix}${command} https://fb.watch/mcx9K6cb6t/?mibextid=8103lRmnirLUhozF`;
+        if (!args[0]) throw `Gunakan contoh ${usedPrefix}${command} https://www.facebook.com/watch/?v=1393572814172251`;
         try {
         const res = await fetch(`https://api.botcahx.eu.org/api/dowloader/fbdown3?url=${args[0]}&apikey=${btc}`);
         const json = await res.json();
