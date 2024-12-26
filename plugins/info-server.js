@@ -49,6 +49,8 @@ let handler = async (m, { conn }) => {
 
 handler.command = handler.help = ['server'];
 handler.tags = ['info'];
+handler.owner = true;
+
 module.exports = handler;
 
 function deleteMessage() {
