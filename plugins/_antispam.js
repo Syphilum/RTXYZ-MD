@@ -7,7 +7,7 @@ const SPAM_TOTALSPAM = 5; // Total Spam
 const SPAM_RESET_TIME = 30000; // Reset time di sesi spam
 const MAX_MESSAGE_DELAY = 2000; // delay maksimal pesan di terimal oleh bot
 const SPAM_BAN_DURATION = 180000 // waktu ban user
-    
+
 exports.before = async function (m) {
     if (!this.spam) this.spam = {}
     if (!this.groupStatus) this.groupStatus = {}
@@ -38,42 +38,58 @@ exports.before = async function (m) {
         
         if (this.spam[m.sender].count >= SPAM_TOTALSPAM) {
             user.banned = true;
-            const banDuration = SPAM_BAN_DURATION; // 3 menit
+            const banDuration = SPAM_BAN_DURATION;
             
             if (m.isGroup) {
                 try {
-                    const groupId = m.chat;
-                    if (!this.groupStatus[groupId]) {
-                        this.groupStatus[groupId] = {
-                            isClosing: false,
-                            originalName: (await this.groupMetadata(groupId)).subject
-                        };
-                    }
-                    
-                    if (!this.groupStatus[groupId].isClosing) {
-                        this.groupStatus[groupId].isClosing = true;
+                    if (global.gcspam) {
+                        const groupId = m.chat;
+                        if (!this.groupStatus[groupId]) {
+                            this.groupStatus[groupId] = {
+                                isClosing: false,
+                                originalName: (await this.groupMetadata(groupId)).subject
+                            };
+                        }
                         
-                        await this.groupSettingUpdate(groupId, 'announcement');
-                        await this.groupUpdateSubject(groupId, `${this.groupStatus[groupId].originalName} (SPAM)`);
+                        if (!this.groupStatus[groupId].isClosing) {
+                            this.groupStatus[groupId].isClosing = true;
+                            
+                            await this.groupSettingUpdate(groupId, 'announcement');
+                            await this.groupUpdateSubject(groupId, `${this.groupStatus[groupId].originalName} (SPAM)`);
+                            
+                            await this.sendMessage(groupId, { 
+                                text: `🚫 SPAM TERDETEKSI!\n\nPengguna @${m.sender.split('@')[0]} telah mengirim ${SPAM_TOTALSPAM} pesan berturut-turut.\nGrup ditutup selama 3 menit.\nPelaku spam dibanned sementara.`,
+                                mentions: [m.sender]
+                            });
+                            
+                            setTimeout(async () => {
+                                try {
+                                    user.banned = false;
+                                    await this.groupSettingUpdate(groupId, 'not_announcement');
+                                    await this.groupUpdateSubject(groupId, this.groupStatus[groupId].originalName);
+                                    await this.sendMessage(groupId, {
+                                        text: `✅ Grup telah dibuka kembali.\n@${m.sender.split('@')[0]} telah di unban.`,
+                                        mentions: [m.sender]
+                                    });
+                                    this.groupStatus[groupId].isClosing = false;
+                                } catch (error) {
+                                    console.error('Error reopening group:', error);
+                                }
+                            }, banDuration);
+                        }
+                    } else {
                         
-                        await this.sendMessage(groupId, { 
-                            text: `🚫 SPAM TERDETEKSI!\n\nPengguna @${m.sender.split('@')[0]} telah mengirim ${SPAM_TOTALSPAM} pesan berturut-turut.\nGrup ditutup selama 3 menit.\nPelaku spam dibanned sementara.`,
+                        await this.sendMessage(m.chat, { 
+                            text: `🚫 SPAM TERDETEKSI!\n\nPengguna @${m.sender.split('@')[0]} telah mengirim ${SPAM_TOTALSPAM} pesan berturut-turut.\nPelaku spam dibanned sementara.`,
                             mentions: [m.sender]
                         });
                         
                         setTimeout(async () => {
-                            try {
-                                user.banned = false;
-                                await this.groupSettingUpdate(groupId, 'not_announcement');
-                                await this.groupUpdateSubject(groupId, this.groupStatus[groupId].originalName);
-                                await this.sendMessage(groupId, {
-                                    text: `✅ Grup telah dibuka kembali.\n@${m.sender.split('@')[0]} telah di unban.`,
-                                    mentions: [m.sender]
-                                });
-                                this.groupStatus[groupId].isClosing = false;
-                            } catch (error) {
-                                console.error('Error reopening group:', error);
-                            }
+                            user.banned = false;
+                            await this.sendMessage(m.chat, {
+                                text: `✅ @${m.sender.split('@')[0]} telah di unban.`,
+                                mentions: [m.sender]
+                            });
                         }, banDuration);
                     }
                 } catch (error) {
