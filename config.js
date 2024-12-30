@@ -12,11 +12,13 @@ global.eror = '_*Server Error*_'
 global.stiker_wait = '*⫹⫺ Stiker sedang dibuat...*'
 global.packname = 'Made With'
 global.author = 'Bot WhatsApp'
-global.autobio = false // Set true untuk mengaktifkan autobio
-global.maxwarn = '3' // Peringatan maksimum
-global.antiporn = true // Auto delete pesan porno (bot harus admin)
-global.spam = true // Set true / false untuk anti spam
+global.maxwarn = '3' // Peringatan maksimum Warn
 
+global.autobio = false // Set true/false untuk mengaktifkan atau mematikan autobio (default: false)
+global.antiporn = true // Set true/false untuk Auto delete pesan porno (bot harus admin) (default: true)
+global.spam = true // Set true/false untuk anti spam (default: true)
+global.gcspam = false // Set true/false untuk menutup grup ketika spam (default: false)
+    
 
 
 //INI WAJIB DI ISI!//
