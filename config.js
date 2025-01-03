@@ -1,10 +1,10 @@
 global.owner = ['6283135781093']  
 global.mods = ['6283135781093'] 
 global.prems = ['6283135781093']
-global.nameowner = 'Neos'
+global.nameowner = 'Papa♡'
 global.numberowner = '6283135781093' 
-global.mail = 'neosmaxima@gmail.com' 
-global.gc = 'https://chat.whatsapp.com/GnTvsWtuWCF3pDpAjAfV6M'
+global.mail = 'syphilum@gmail.com' 
+global.gc = 'https://chat.whatsapp.com/IT6tZBLgAd6IDg2SGNpG0U'
 global.instagram = 'https://instagram.com/syphilum1'
 global.wm = '© Elfaria'
 global.wait = '_*Tunggu sedang di proses...*_'
