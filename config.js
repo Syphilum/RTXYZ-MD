@@ -10,7 +10,7 @@ global.wm = '© Elfaria'
 global.wait = '_*Tunggu sedang di proses...*_'
 global.eror = '_*Server Error*_'
 global.stiker_wait = '*⫹⫺ Stiker sedang dibuat...*'
-global.packname = 'Made With'
+global.packname = 'Made With love'
 global.author = 'Elfaria Bot'
 global.maxwarn = '3' // Peringatan maksimum Warn
 
