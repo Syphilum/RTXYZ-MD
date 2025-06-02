@@ -22,7 +22,7 @@ global.gcspam = false // Set true/false untuk menutup grup ketika spam (default:
 
 
 //INI WAJIB DI ISI!//
-global.btc = 'tj8CuJ2o' 
+global.btc = 'MgxxxVVf' 
 //Daftar terlebih dahulu https://api.botcahx.eu.org
 
 //INI OPTIONAL BOLEH DI ISI BOLEH JUGA ENGGA//
