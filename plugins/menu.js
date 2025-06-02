@@ -118,10 +118,10 @@ let handler = async (m, { conn, usedPrefix: _p, args = [], command }) => {
             let menuList = `${defaultMenu.before}\n\n🎀 *📚 DAFTAR MENU ELFIE-CHAN* 🎀\n╭───────────────❀\n`
             for (let tag of arrayMenu) {
                 if (tag && allTags[tag]) {
-                    menuList += `│  ◦ ${_p}menu ${tag}\n`
+                    menuList += `│ 🍡 ${_p}menu ${tag}\n`
                 }
             }
-            menuList += `└  \n\n${defaultMenu.after}`
+            menuList += `╰───────────────❀\n\n${defaultMenu.after}`
 
             let replace = {
                 '%': '%',
