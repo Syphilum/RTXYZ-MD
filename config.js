@@ -14,7 +14,7 @@ global.packname = 'Made With love'
 global.author = 'Elfaria Bot'
 global.maxwarn = '3' // Peringatan maksimum Warn
 
-global.autobio = true // Set true/false untuk mengaktifkan atau mematikan autobio (default: false)
+global.autobio = false // Set true/false untuk mengaktifkan atau mematikan autobio (default: false)
 global.antiporn = false // Set true/false untuk Auto delete pesan porno (bot harus admin) (default: true)
 global.spam = true // Set true/false untuk anti spam (default: true)
 global.gcspam = false // Set true/false untuk menutup grup ketika spam (default: false)
