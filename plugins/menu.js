@@ -51,22 +51,25 @@ const allTags = {
 }
 
 const defaultMenu = {
-    before: `
-Hi %name
-I am an automated system (WhatsApp Bot) that can help to do something, search and get data / information only through WhatsApp.
+  before: `
+🌸 Konnichiwa~ %name-san! 🌸
+✨ Watashi wa *Elfie-chan*, your cute & helpful WhatsApp assistant! 🫶 
+Dengan semangat seperti idol Jepang, aku hadir untuk membantu kamu cari info, data, hiburan, atau cuma nemenin kamu ngobrol~ 🎤🎶
 
-◦ *Library:* Baileys
-◦ *Function:* Assistant
+⏰ *Status System*
+┌  📈 Uptime : %uptime
+│  📅 Tanggal : %date
+│  🕒 Waktu : %time
+└  📝 Prefix kamu : *[ %p ]*
 
-┌  ◦ Uptime : %uptime
-│  ◦ Tanggal : %date
-│  ◦ Waktu : %time
-└  ◦ Prefix Used : *[ %p ]*
+Yuk mulai petualangan bersama Elfie-chan~ 💫
 `.trimStart(),
-    header: '┌  ◦ *%category*',
-    body: '│  ◦ %cmd %islimit %isPremium',
-    footer: '└  ',
-    after: `*Note:* Ketik .menu <category> untuk melihat menu spesifik\nContoh: .menu tools`
+
+  header: '╭─ ⟡ *%category*',
+  body: '│ ✦ %cmd %islimit %isPremium',
+  footer: '╰──────⊹',
+  
+  after: `💡 *Tips:* Gunakan .menu <kategori> untuk melihat lebih spesifik~\nMisalnya: .menu tools`
 }
 
 let handler = async (m, { conn, usedPrefix: _p, args = [], command }) => {
