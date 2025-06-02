@@ -69,7 +69,13 @@ Yuk mulai petualangan bersama Elfie-chan~ 💫
   body: '│ ✦ %cmd %islimit %isPremium',
   footer: '╰──────⊹',
   
-  after: `💡 *Tips:* Gunakan .menu <kategori> untuk melihat lebih spesifik~\nMisalnya: .menu tools`
+  after: `
+📌 *Tips dari Elfie-chan~*:
+Ketik *%p menu <kategori>* untuk melihat menu spesifik ya! 💖
+Contoh: *%p menu tools*
+
+Terima kasih sudah pakai Elfie-chan~ ✨ Jangan lupa istirahat & minum air putih yaa~ 💧
+`.trim()
 }
 
 let handler = async (m, { conn, usedPrefix: _p, args = [], command }) => {
