@@ -16,7 +16,7 @@ let path = require('path')
 let fetch = require('node-fetch')
 let moment = require('moment-timezone')
 let levelling = require('../lib/levelling')
-let arrayMenu = ['all', 'main', 'downloader', 'rpg', 'rpgG', 'sticker', 'advanced', 'xp', 'fun', 'game', 'github', 'group', 'image', 'nsfw', 'info', 'internet', 'islam', 'kerang', 'maker', 'owner', 'voice', 'quotes', 'store', 'stalk', 'shortlink', 'tools', 'anonymous', ''];
+let arrayMenu = ['all', 'main', 'downloader', 'rpg', 'rpgG', 'sticker', 'advanced', 'xp', 'fun', 'game', 'github', 'group', 'image', 'nsfw', 'info', 'internet', 'islam', 'kerang', 'maker', 'owner', 'voice', 'quotes', 'store', 'stalk', 'shortlink', 'tools', 'anonymous', 'elfie', ''];
 
 
 const allTags = {
@@ -47,6 +47,7 @@ const allTags = {
     'shortlink': 'SHORT LINK',
     'tools': 'MENU TOOLS',
     'anonymous': 'ANONYMOUS CHAT',
+    'elfie': 'JIKOSHOKAI ELFIE',
     '': 'NO CATEGORY'
 }
 
