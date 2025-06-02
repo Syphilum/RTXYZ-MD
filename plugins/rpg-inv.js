@@ -110,7 +110,7 @@ renderLargerThumbnail: true
 }}}, { quoted: m })
 
 conn.fakeReply(m.chat, capt, '0@s.whatsapp.net', 'Inventory', 'status@broadcast')
-  conn.sendFile(m.chat, 'https://telegra.ph/file/5488aa5c5b3c28cd35e0e.jpg', 'balance.jpg', caption, m)
+  conn.sendFile(m.chat, 'https://telegra.ph/file/5488aa5c5b3c28cd35e0e.jpg', 'balance.jpg', capt, m)
 }
 
 handler.help = ['inventory *@user*']
